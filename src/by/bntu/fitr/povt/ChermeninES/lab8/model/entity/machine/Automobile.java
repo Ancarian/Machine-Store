@@ -19,14 +19,17 @@ public class Automobile extends Machine {
         this.wheels = wheels;
     }
 
+    public String getColor() {
+        return color;
+    }
+
     public void setColor(String color){
         this.color = color;
     }
 
-    public String getColor(){
-        return color;
+    public int getWheels() {
+        return wheels;
     }
-
 
     public void setWheels(int wheels){
         if (wheels>0){
@@ -36,12 +39,6 @@ public class Automobile extends Machine {
             throw new IndexOutOfBoundsException();
         }
     }
-
-    public int getWheels(){
-        return wheels;
-    }
-
-
 
     @Override
     public String toString(){
