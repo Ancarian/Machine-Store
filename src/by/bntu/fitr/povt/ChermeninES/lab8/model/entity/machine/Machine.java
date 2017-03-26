@@ -17,12 +17,16 @@ public class Machine implements Comparable<Object> {
         this.weight = weight;
     }
 
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public int getWeight() {
+        return weight;
     }
 
     public void setWeight(int weight) {
@@ -33,18 +37,14 @@ public class Machine implements Comparable<Object> {
         }
     }
 
-    public int getWeight() {
-        return weight;
-    }
-
     @Override
     public boolean equals(Object o) {
+
+
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Machine aircraft = (Machine) o;
-
-        return manufacturer.equals(aircraft.getManufacturer());
+        else if (o == null || getClass() != o.getClass()) return false;
+        else if (!this.getManufacturer().equals(((Machine) o).getManufacturer())) return false;
+        else return this.getWeight() == ((Machine) o).getWeight();
     }
 
 
@@ -75,15 +75,20 @@ public class Machine implements Comparable<Object> {
         return String.format("Machine manufacturer: %s weigth: %d", manufacturer, weight);
     }
 
-    public enum Manufacturers {
-        LADA,
-        SHKONDA,
-        MAZDA,
-        BMW,
-        MERCEDES;
+    public static enum Manufacturer {
+        SHKONDA("Shkonda"),
+        BMW("Bmw"),
+        MERCEDES("Mercedes"),
+        OTHER("Other");
+
+        private String name;
+
+        private Manufacturer(String name) {
+            this.name = name;
+        }
 
         @Override
-        public String  toString(){
+        public String toString() {
             return name().charAt(0) + name().substring(1).toLowerCase();
         }
     }

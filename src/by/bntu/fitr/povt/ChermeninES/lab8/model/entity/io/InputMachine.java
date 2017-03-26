@@ -1,7 +1,7 @@
 package by.bntu.fitr.povt.ChermeninES.lab8.model.entity.io;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /**
@@ -9,19 +9,25 @@ import java.io.PrintWriter;
  */
 public class InputMachine {
     private File file;
-    private PrintWriter writeFile;
+    private PrintWriter writer;
 
-    public InputMachine(String fileName) throws IOException {
-        file = new File(fileName);
-        writeFile = new PrintWriter(file);
+    public InputMachine(String fileName) {
+        try {
+
+            file = new File(fileName);
+            writer = new PrintWriter(file);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.toString());
+        }
     }
 
     public void write(String text) {
-        //Записываем текст у файл
-        writeFile.print(text);
+        writer.println(text);
     }
 
-    public void close(){
-        writeFile.close();
+
+    public void close() {
+        writer.flush();
+        writer.close();
     }
 }

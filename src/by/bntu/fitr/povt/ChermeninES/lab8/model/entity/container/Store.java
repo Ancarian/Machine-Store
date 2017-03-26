@@ -1,11 +1,9 @@
 package by.bntu.fitr.povt.ChermeninES.lab8.model.entity.container;
 
-import by.bntu.fitr.povt.ChermeninES.lab8.model.entity.collection.ICollection;
-import by.bntu.fitr.povt.ChermeninES.lab8.model.entity.collection.QueueList;
-import by.bntu.fitr.povt.ChermeninES.lab8.model.entity.comporator.SortMachineByManufacturer;
 import by.bntu.fitr.povt.ChermeninES.lab8.model.entity.machine.Machine;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -14,45 +12,43 @@ import java.util.List;
 public class Store {
     private List<Machine> store;
 
-    public Store(){
+    public Store() {
         store = new ArrayList<>();
     }
 
-    public Store(List<Machine> store){
+    public Store(List<Machine> store) {
         this.store = store;
     }
 
-
-    public void setStore(List<Machine> store){
-        this.store = store;
-    }
-
-    public List<Machine> getStore(){
+    public List<Machine> getStore() {
         return store;
     }
 
-    public void add(Machine auto){
+    public void setStore(List<Machine> store) {
+        this.store = store;
+    }
+
+    public void add(Machine auto) {
         store.add(auto);
     }
 
-    public void remove(int index){
-        if (index>=0 && index<store.size()) {
+    public void remove(int index) {
+        if (index >= 0 && index < store.size()) {
             store.remove(index);
-        }
-        else {
+        } else {
             throw new IndexOutOfBoundsException();
         }
     }
 
-    public Machine[] toArray(){
+    public Machine[] toArray() {
         return store.toArray(new Machine[store.size()]);
     }
 
-    public void sort(){
-        store.sort(new SortMachineByManufacturer());
+    public void sort(Comparator<Machine> comparable) {
+        store.sort(comparable);
     }
 
-    public String toString(){
+    public String toString() {
         StringBuilder s = new StringBuilder("\n");
 
         for (Machine machine : store) {

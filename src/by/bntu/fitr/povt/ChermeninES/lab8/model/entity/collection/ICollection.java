@@ -6,11 +6,11 @@ import java.util.Collection;
 /**
  * Created by Dell on 02/03/2017.
  */
-public interface ICollection<item> extends Collection<item>{
+public interface ICollection<item> extends Collection<item> {
 
-    item pop ();
+    item pop();
 
-    void push (item item);
+    void push(item item);
 
     item peek();
 

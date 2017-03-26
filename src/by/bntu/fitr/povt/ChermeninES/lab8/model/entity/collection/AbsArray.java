@@ -1,27 +1,31 @@
 package by.bntu.fitr.povt.ChermeninES.lab8.model.entity.collection;
-import java.util.*;
+
+import java.util.AbstractCollection;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Created by Dell on 02/03/2017.
  */
 
-public abstract class AbsArray<item> extends AbstractCollection<item> implements ICollection<item>{
-
-    protected AbsArray(){}
-
+public abstract class AbsArray<item> extends AbstractCollection<item> implements ICollection<item> {
 
     protected int size;
     protected Object[] elementData;
 
-    public int size(){
+    protected AbsArray() {
+    }
+
+    public int size() {
         return size;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
-    public void clear(){
+    public void clear() {
         for (int i = 0; i < size; i++)
             elementData[i] = null;
 

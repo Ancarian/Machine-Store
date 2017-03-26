@@ -8,12 +8,12 @@ public class Automobile extends Machine {
     private String color;
     private int wheels;
 
-    public Automobile(){
+    public Automobile() {
         color = "unknown";
         wheels = 4;
     }
 
-    public Automobile(String color, int wheels, String manufacturer, int weight){
+    public Automobile(String color, int wheels, String manufacturer, int weight) {
         super(manufacturer, weight);
         this.color = color;
         this.wheels = wheels;
@@ -23,7 +23,7 @@ public class Automobile extends Machine {
         return color;
     }
 
-    public void setColor(String color){
+    public void setColor(String color) {
         this.color = color;
     }
 
@@ -31,17 +31,16 @@ public class Automobile extends Machine {
         return wheels;
     }
 
-    public void setWheels(int wheels){
-        if (wheels>0){
+    public void setWheels(int wheels) {
+        if (wheels > 0) {
             this.wheels = wheels;
-        }
-        else{
+        } else {
             throw new IndexOutOfBoundsException();
         }
     }
 
     @Override
-    public String toString(){
-        return String.format("Automobile %s color: %s wheels: %d",super.toString(), color, wheels);
+    public String toString() {
+        return String.format("Automobile %s color: %s wheels: %d", super.toString(), color, wheels);
     }
 }

@@ -18,28 +18,27 @@ public class QueueList<item> extends AbsList<item> {
         return (item) first.getElement();
     }
 
-    public void push(item item){
+    public void push(item item) {
         Node oldlast = last;
         last = new Node();
         last.setElement(item);
         last.setNext(null);
-        if (isEmpty()){
+        if (isEmpty()) {
             first = last;
-        }
-        else{
+        } else {
             oldlast.setNext(last);
         }
         size++;
     }
 
     public item pop() {
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new NoSuchElementException("Queue is empty");
         }
         item item = (item) first.getElement();
         first = first.getNext();
         size--;
-        if (isEmpty()){
+        if (isEmpty()) {
             last = null;
         }
         return item;
@@ -47,19 +46,20 @@ public class QueueList<item> extends AbsList<item> {
 
     public String toString() {
         if (isEmpty()) {
-                return "[]";
-            }
-            StringBuilder s = new StringBuilder("\n[");
-
-            Node copyfirst = first;
-            while (copyfirst != null) {
-                s.append(copyfirst.getElement()).append(", ");;
-                copyfirst = copyfirst.getNext();
-            }
-            s.replace(s.length() - 2, s.length(), "]");
-
-            return s.toString();
+            return "[]";
         }
+        StringBuilder s = new StringBuilder("\n[");
 
+        Node copyfirst = first;
+        while (copyfirst != null) {
+            s.append(copyfirst.getElement()).append(", ");
+            ;
+            copyfirst = copyfirst.getNext();
+        }
+        s.replace(s.length() - 2, s.length(), "]");
+
+        return s.toString();
     }
+
+}
 

@@ -6,7 +6,7 @@ package by.bntu.fitr.povt.ChermeninES.lab8.view;
 public class Printer {
 
     public static void print(Object msg) {
-            System.out.println(msg.toString());
-        }
+        System.out.println(msg.toString());
+    }
 
 }

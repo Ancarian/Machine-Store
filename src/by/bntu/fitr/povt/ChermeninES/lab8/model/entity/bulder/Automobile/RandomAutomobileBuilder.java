@@ -10,8 +10,8 @@ public class RandomAutomobileBuilder extends AutomobileBuilder {
 
 
     public void buildManufacturer() {
-        machine.setManufacturer(Machine.Manufacturers.values()[Randomizer.randomInt(0,
-                Machine.Manufacturers.values().length)].toString());
+        machine.setManufacturer(Machine.Manufacturer.values()[Randomizer.randomInt(0,
+                Machine.Manufacturer.values().length)].toString());
     }
 
     public void buildWeight() {
@@ -19,7 +19,7 @@ public class RandomAutomobileBuilder extends AutomobileBuilder {
     }
 
     public void buildColor() {
-        String colors[] = {"Red", "Green", "Black", "White", "Orange"};
+        String colors[] = {"Red", "Green", "Black", "White", "Orange" };
         machine.setColor(colors[Randomizer.randomInt(0, 5)]);
     }
 

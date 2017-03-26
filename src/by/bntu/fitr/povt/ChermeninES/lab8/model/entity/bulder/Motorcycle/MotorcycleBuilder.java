@@ -17,7 +17,7 @@ public abstract class MotorcycleBuilder implements Machineable {
 
     public abstract void buildWeight();
 
-    public void create(){
+    public void create() {
         machine = new Motorcycle();
     }
 

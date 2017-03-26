@@ -9,7 +9,7 @@ import by.bntu.fitr.povt.ChermeninES.lab8.model.entity.machine.Machine;
 abstract class MachineBuilder implements Machineable {
     protected Machine machine;
 
-    public void create(){
+    public void create() {
         machine = new Machine();
     }
 
@@ -26,6 +26,7 @@ abstract class MachineBuilder implements Machineable {
         buildWeight();
 
     }
+
 
 }
 

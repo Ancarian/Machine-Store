@@ -11,7 +11,7 @@ public class RandomMachineBuilder extends MachineBuilder {
 
 
     public void buildManufacturer() {
-        machine.setManufacturer(Machine.Manufacturers.values()[Randomizer.randomInt(0, Machine.Manufacturers.values().length)].toString());
+        machine.setManufacturer(Machine.Manufacturer.values()[Randomizer.randomInt(0, Machine.Manufacturer.values().length)].toString());
     }
 
     public void buildWeight() {

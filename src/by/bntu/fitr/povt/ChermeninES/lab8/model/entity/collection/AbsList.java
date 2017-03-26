@@ -1,5 +1,8 @@
 package by.bntu.fitr.povt.ChermeninES.lab8.model.entity.collection;
-import java.util.*;
+
+import java.util.AbstractCollection;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Created by Dell on 02/03/2017.
@@ -10,21 +13,48 @@ public abstract class AbsList<item> extends AbstractCollection<item> implements 
     protected Node last;
     protected int size;
 
-    public AbsList(){
+    public AbsList() {
         first = null;
         last = null;
         size = 0;
     }
-    public int size(){
+
+    public int size() {
         return size;
     }
 
-    public void clear(){
+    public void clear() {
         first = null;
     }
 
     public Iterator<item> iterator() {
         return new Itr();
+    }
+
+    /**
+     * Created by Dell on 02/03/2017.
+     */
+
+    public static class Node<item> {
+
+        private item element;
+        private Node next;
+
+        public Object getElement() {
+            return element;
+        }
+
+        public void setElement(item e) {
+            element = e;
+        }
+
+        public Node getNext() {
+            return next;
+        }
+
+        public void setNext(Node n) {
+            next = n;
+        }
     }
 
     private class Itr implements Iterator<item> {
@@ -46,31 +76,6 @@ public abstract class AbsList<item> extends AbstractCollection<item> implements 
             return (item) lastReturned.getElement();
         }
 
-    }
-
-    /**
-     * Created by Dell on 02/03/2017.
-     */
-
-    public static class Node<item> {
-
-        private item element;
-        private Node next;
-
-        public Object getElement(){
-            return element;
-        }
-
-        public void setElement(item e){
-            element = e;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-        public void setNext(Node n) {
-            next = n;
-        }
     }
 
 }

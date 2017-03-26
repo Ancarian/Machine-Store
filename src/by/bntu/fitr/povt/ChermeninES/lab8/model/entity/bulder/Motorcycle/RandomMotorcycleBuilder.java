@@ -9,7 +9,8 @@ import by.bntu.fitr.povt.ChermeninES.lab8.util.Randomizer;
 public class RandomMotorcycleBuilder extends MotorcycleBuilder {
 
     public void buildManufacturer() {
-        machine.setManufacturer(Machine.Manufacturers.values()[Randomizer.randomInt(0, Machine.Manufacturers.values().length)].toString());
+        machine.setManufacturer(
+                Machine.Manufacturer.values()[Randomizer.randomInt(0, Machine.Manufacturer.values().length)].toString());
     }
 
     public void buildWeight() {

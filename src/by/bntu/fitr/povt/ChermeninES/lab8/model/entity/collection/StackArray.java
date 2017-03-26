@@ -8,31 +8,31 @@ import java.util.NoSuchElementException;
  */
 
 public class StackArray<item> extends AbsArray<item> {
-    public StackArray(){
+    public StackArray() {
         elementData = new Object[0];
         this.size = 0;
     }
 
 
-    public void push(item item){
+    public void push(item item) {
         elementData = Arrays.copyOf(elementData, size + 1);
         System.arraycopy(elementData, 0, elementData, 1, size);
         elementData[0] = item;
         size++;
     }
 
-    public item peek(){
-        if (isEmpty()){
+    public item peek() {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        return (item)elementData[0];
+        return (item) elementData[0];
     }
 
-    public item pop(){
-        if (isEmpty()){
+    public item pop() {
+        if (isEmpty()) {
             throw new NoSuchElementException("Stack is empty");
         }
-        item item = (item)elementData[0];
+        item item = (item) elementData[0];
 
         System.arraycopy(elementData, 1, elementData, 0, size - 1);
         elementData = Arrays.copyOf(elementData, size - 1);
@@ -41,13 +41,13 @@ public class StackArray<item> extends AbsArray<item> {
         return item;
     }
 
-    public String toString(){
-        if (isEmpty()){
+    public String toString() {
+        if (isEmpty()) {
             return "[]";
         }
         StringBuilder s = new StringBuilder("\n[");
 
-        for (Object obj : elementData){
+        for (Object obj : elementData) {
             s.append(obj).append(", ");
         }
         s.replace(s.length() - 2, s.length(), "]");
